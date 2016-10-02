@@ -99,7 +99,6 @@
         
         
         
-<<<<<<< Updated upstream
         <canvas id="myCanvas" width="1000" height="500" ></canvas>
         <script>
             var canvas = document.getElementById("myCanvas");
@@ -169,88 +168,9 @@
         </script>
 
         
-=======
-        
-        
-       <canvas id="myCanvas" width="1000" height="500" ></canvas>
->>>>>>> Stashed changes
         <script>
-            var canvas = document.getElementById("myCanvas");
-            var ctx = canvas.getContext("2d");
             
-            var therm_x = 550;
-            var therm_y = 5;
-            var therm_width = 30;
-            var therm_height = 100;
-            
-            var black_x = 545;
-            var black_y = 0;
-            var black_width = 40;
-            var black_height = 110;
-            
-<<<<<<< Updated upstream
             console.log("generic");
-=======
-            var increment = 25;
-            var score = "";
-            
-            document.addEventListener ("click", mouseMoveHandler, false);
-            function mouseMoveHandler(e) {
-                    therm_y += increment;
-                    therm_height -= increment;
-                    score += "|";
-            }
-
-            function drawScore() {
-                ctx.font = "16px Chalkboard";
-                ctx.fillStyle = "#0095DD";
-                ctx.fillText("Tally: " + score, 10, 250);
-            }
-            
-            function drawThermometer() {
-                ctx.beginPath();
-                ctx.rect(therm_x, therm_y, therm_width, therm_height);
-                ctx.fillStyle = "grey";
-                ctx.fill();
-                ctx.closePath();
-            }
-            
-            function drawThermBackground() {
-                ctx.beginPath();
-                ctx.rect(black_x, black_y, black_width, black_height);
-                ctx.fillStyle = "black";
-                ctx.fill();
-                ctx.closePath();
-        
-                ctx.beginPath();
-                ctx.rect(550, 5, 30, 100);
-                ctx.fillStyle = "white";
-                ctx.fill();
-                ctx.closePath();
-            }
-            
-            function draw() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                drawThermBackground();
-                drawThermometer();
-                drawScore();
-                requestAnimationFrame(draw);
-            }
-            
-            draw();
-        </script>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        <script>
-        
->>>>>>> Stashed changes
             var index = 0;
             var timerCheck = 0;
             var counter = 1;
@@ -311,15 +231,9 @@
                 document.getElementById(3).textContent = "";
             }
                 
-<<<<<<< Updated upstream
             if(timerCheck===0 || timerCheck===1){
                 function changeImage(){
                     console.log("in images");
-=======
-            
-            
-            function  nextScene() {
->>>>>>> Stashed changes
                 
                     if(timerCheck === 0){
                     
@@ -476,10 +390,7 @@
                     // Update the value of the buttons to reflect the current question's answers
                     updateButtons();
                     
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
                     //console.log("this is scenarios length: " + scenarios.length)
 
 
