@@ -20,6 +20,7 @@ This site also contains information about sexual assault and/or violence which m
 - [ ] add the rest of the images
 - [ ] arrange placement of rest of buttons in the style section 
 - [ ] add effects 
+- [ ] responsiveness (half screen, background vertical-repeats) 
 - [ ] add audio
 - [ ] add full screen mode
 - [ ] link custom domain 
