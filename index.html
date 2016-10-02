@@ -9,8 +9,8 @@
             #image {
 /*                background-color: blue;*/
                 background-image:url("pic1.jpg");
-                background-size: 80% auto;
-
+                background-size: 100% auto;
+                background-repeat: no-repeat;
                 }
             
             #question {
@@ -38,7 +38,7 @@
     <body id="image">
 
         
-        <h1>Smile For Me</h1>
+<!--        <h1>Day 1</h1>-->
         
         <div id="question"></div>
         <div id="answer1"></div>
@@ -48,57 +48,61 @@
         <div id = "educationalFact"></div>
         
     
-            
-            
             <div id = "button">
-
-            <button style = "background-color: transparent; border-width: 2px; border-radius: 10px; border:none" onclick="nextScene()" id="1"></button>
-            <button style = "background-color: transparent; border-width: 2px; border-radius: 10px; border:none" onclick="nextScene()" id="2"></button>
-            <button style = "background-color: transparent; border-width: 2px; border-radius: 10px;border:none" onclick="nextScene()" id="3"></button>
+            <button style = "background-color: transparent; border-width: 2px; border-radius: 10px; border:none" onclick="nextScene();decrement()" id="1"></button>
+            <button style = "background-color: transparent; border-width: 2px; border-radius: 10px; border:none" onclick="nextScene();decrement()" id="2"></button>
+            <button style = "background-color: transparent; border-width: 2px; border-radius: 10px;border:none" onclick="nextScene();decrement()" id="3"></button>
                 
             <button style = "background-color: transparent; border-width: 2px; border-radius: 10px;border:none size:10px 10px; visibility:hidden" onclick="nextScene()"  id="4"><img src="arrow.png" alt="Continue"></button>
+            
                 
                 
                 
         </div>
+        
+        
         
         <canvas id="myCanvas" width="1000" height="500" ></canvas>
         <script>
             var canvas = document.getElementById("myCanvas");
             var ctx = canvas.getContext("2d");
             
-            var therm_x = 550;
-            var therm_y = 5;
-            var therm_width = 30;
+            var therm_x = 840;
+            var therm_y = 35;
+            var therm_width = 20;
             var therm_height = 100;
             
-            var black_x = 545;
-            var black_y = 0;
-            var black_width = 40;
+            var black_x = 835;
+            var black_y = 30;
+            var black_width = 30;
             var black_height = 110;
             
             var increment = 25;
             var score = "";
             
-            document.addEventListener ("click", mouseMoveHandler, false);
-            function mouseMoveHandler(e) {
-                    therm_y += increment;
-                    therm_height -= increment;
-                    score += "|";
+            function decrement() {
+                therm_y += increment;
+                therm_height -= increment;
+                score += "|";
             }
-
+            
             function drawScore() {
-                ctx.font = "16px Chalkboard";
-                ctx.fillStyle = "#0095DD";
-                ctx.fillText("Tally: " + score, 10, 250);
+                ctx.font = "20px Verdana";
+                ctx.fillStyle = "white";
+                ctx.fillText("Microagressions", 740, 180);
+                ctx.fillText("Faced:" + score, 800, 210);
             }
             
             function drawThermometer() {
                 ctx.beginPath();
                 ctx.rect(therm_x, therm_y, therm_width, therm_height);
-                ctx.fillStyle = "grey";
+                ctx.fillStyle = "red";
                 ctx.fill();
                 ctx.closePath();
+                
+                ctx.font = "20px Verdana";
+                ctx.fillStyle = "white";
+                ctx.fillText("Energy Spent:", 755, 20);
             }
             
             function drawThermBackground() {
@@ -109,7 +113,7 @@
                 ctx.closePath();
         
                 ctx.beginPath();
-                ctx.rect(550, 5, 30, 100);
+                ctx.rect(840, 35, 20, 100);
                 ctx.fillStyle = "white";
                 ctx.fill();
                 ctx.closePath();
@@ -125,6 +129,7 @@
             
             draw();
         </script>
+
         
         <script>
             
@@ -133,15 +138,34 @@
             var timerCheck = 0;
             var counter = 1;
             
-            var scenarios = [{background : "pic3bubble.jpg", question : "As you leave, the doorman comments 'Are you sure you can carry that? It looks too heavy for a girl like you", answer1 : "You smile and nod and let him carry it", answer2 : "You say, 'No, I can handle this myself'", answer3 : "You ignore him and leave", transitionResponse : "This is an example of gender stereotyping. Gender stereotyes are pervasive in today's society. Common stereotypes about women include the assumption that they are weak and incompetent." }, 
+            var scenarios = [{background : "pic3bubble.jpg", question : "As you leave, the doorman comments 'Are you sure you can carry that? It looks too heavy for a girl like you", answer1 : "You smile and nod and let him carry it", answer2 : "You say, 'No, I can handle this myself'", answer3 : "You ignore him and leave", transitionResponse : "This is an example of gender stereotyping. Gender stereotyes are pervasive in today's society. Common stereotypes about women include the assumption that they are weak and incompetent.", audio : "happyChances.mp3" }, 
 
-            {background : "pic4.jpg", question : "You're walking to work now, and a guy on the street says to you ", answer1 : "You smile", answer2 : "You say, 'This is considered harassment, and you need to leave me alone.'", answer3 : "You ignore him", transitionResponse : "Over 99% of American women have been a victim of street harrasment such as honking, whistling, kissing noises, staring, etc." }, 
+            {background : "pic4.jpg", question : "You're walking to work now, and a guy on the street says to you ", answer1 : "You smile", answer2 : "You say, 'This is considered harassment, and you need to leave me alone.'", answer3 : "You ignore him", transitionResponse : "Over 99% of American women have been a victim of street harrasment such as honking, whistling, kissing noises, staring, etc.", audio : "trafficJam.mp3" }, 
 
-            {background : "pic3.jpg", question : "You've arrived at work, and you're currently in a meeting. You keep getting interrupted by your male coworker while you're speaking", answer1 : "You allow the coworker to keep interupting", answer2 : "You say, 'Excuse me, can you let me finish my sentence?'", answer3 : "You decide to just let the coworker speak for you", transitionResponse : "Women’s perceived competency drops by 35 percent and their perceived deserved compensation by $15,088 when they are assertive or forceful." },
+            {background : "pic5bubble.jpg", question : "You've arrived at work, and you're currently in a meeting. You keep getting interrupted by your male coworker while you're speaking", answer1 : "You allow the coworker to keep interupting", answer2 : "You say, 'Excuse me, can you let me finish my sentence?'", answer3 : "You decide to just let the coworker speak for you", transitionResponse : "Women’s perceived competency drops by 35 percent and their perceived deserved compensation by $15,088 when they are assertive or forceful.", audio : "officeSounds.mp3" },
 
-            {background: "pic4.jpg", question : "It's finally the end of the day, and you're at the bar with friends. While you're partying, a guy grabs your friend's waist from the back. Your friend tells him to stop, but he doesn't listen.", answer1 : "You cheer on your friend", answer2 : "You tell him to back off because 'Yes means yes, and no means no'.", answer3 : "You pretend you never saw", transitionResponse : "Nearly 57 percent of women reported being touched or grabbed in a sexual way by a stranger in public"}];
+            {background: "pic6.jpg", question : "It's finally the end of the day, and you're at the bar with friends. While you're partying, a guy grabs your friend's waist from the back. Your friend tells him to stop, but he doesn't listen.", answer1 : "You cheer on your friend", answer2 : "You tell him to back off because 'Yes means yes, and no means no'.", answer3 : "You pretend you never saw", transitionResponse : "Nearly 57 percent of women reported being touched or grabbed in a sexual way by a stranger in public", audio: "busyBar.mp3" }];
 
      
+            
+        
+//            var audio = new Audio('metro.mp3');
+            var audio = document.createElement('audio');
+            audio.id = "audio";
+            audio.src = 'alarm.mp3';
+            audio.play();
+            
+            var vol = 0;
+
+            while (vol > 0)
+            {
+                vol -= 5
+                audio.setVolume(vol)
+            }
+            
+            
+         
+            
         function  updateButtons(){
             
             console.log("updateButtons");
@@ -168,11 +192,17 @@
                 
                     if(timerCheck === 0){
                     
+                        audio.src = 'happyChances.mp3';
+                        audio.play();
                         document.body.style.backgroundImage = "url('pic2.jpg')";
                         timerCheck = timerCheck+1;
                     
                     } 
                     else if(timerCheck === 1){
+                        
+                        
+                        
+                        audio.play();
                         document.body.style.backgroundImage = "url('pic3.jpg')";
                         timerCheck = timerCheck+1;
                         nextScene();
@@ -182,19 +212,28 @@
             }
                             
                 //*
-            if(timerCheck===0 || timerCheck===1){
-                	setInterval("changeImage()", 3000);
+            if(timerCheck===0){
+                
+                setInterval("changeImage()", 3000);
+                
+            } if(timerCheck===1){
+                	setInterval("changeImage()", 8000);
 
                 } 
+            
+            
             
             function  nextScene() {
                 console.log("in next scene, this is counter: " + counter);
                 
-                if(index === scenarios.length) return;
+//                if(index === scenarios.length) return;
                 
 //                
+                console.log("this is counter: " + counter);
                 
-                 else if(counter%2 !=0){
+                if(counter%2 !=0){
+                     
+                     
                      
                      document.getElementById("4").style.visibility="hidden";
                     // Clear the transitional response
@@ -214,7 +253,9 @@
                     
                     document.getElementById("question").innerHTML=scenarios[index]["question"];
 
-
+                    audio.src = scenarios[index]["audio"];
+                    audio.play();
+                     
                     index = index + 1;
                     counter = counter + 1;
                 }
@@ -232,7 +273,10 @@
                     
                     clearButtons()
                     
-                    document.getElementById("answer3").innerHTML=scenarios[index]["transitionResponse"]
+//                    audio.src = scenarios[index]["audio"];
+//                    audio.play();
+                    
+                    document.getElementById("answer3").innerHTML=scenarios[index-1]["transitionResponse"]
                     
                     console.log("hi")
                     counter = counter + 1;

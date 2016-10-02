@@ -1,0 +1,25 @@
+/*
+.nextArrow{
+    
+    width:0;
+    height:0;
+    border-top:40px solid transparent;
+    border-bottom: 40px solid transparent;
+    border-left:40px solid white;
+    
+}
+*/
+
+
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+#image {
+    
+    background-image: url("pic1.jpg");
+    
+}
+
