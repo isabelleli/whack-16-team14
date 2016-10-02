@@ -22,3 +22,4 @@ hello people
 - [ ] arrange placement of rest of buttons in the style section 
 - [ ] add effects 
 - [ ] add audio
+- [ ] add full screen mode
