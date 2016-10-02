@@ -13,8 +13,10 @@
                 background-repeat: no-repeat;
                 }
             
-            #question {
-            
+            #question0 {
+                position: absolute;
+                left: 100px;
+                top: 150px;
                 color: white
             }
             
@@ -39,8 +41,10 @@
 
         
 <!--        <h1>Day 1</h1>-->
-        
-        <div id="question"></div>
+        <div id="question0"></div>
+        <div id="question1"></div>
+        <div id="question2"></div>
+        <div id="question3"></div>
         <div id="answer1"></div>
         <div id="answer2"></div>
         <div id="answer3"></div>
@@ -137,6 +141,7 @@
             var index = 0;
             var timerCheck = 0;
             var counter = 1;
+            var questioncount = 0;
             
             var scenarios = [{background : "pic3bubble.jpg", question : "As you leave, the doorman comments 'Are you sure you can carry that? It looks too heavy for a girl like you", answer1 : "You smile and nod and let him carry it", answer2 : "You say, 'No, I can handle this myself'", answer3 : "You ignore him and leave", transitionResponse : "This is an example of gender stereotyping. Gender stereotyes are pervasive in today's society. Common stereotypes about women include the assumption that they are weak and incompetent.", audio : "happyChances.mp3" }, 
 
@@ -206,6 +211,7 @@
                         document.body.style.backgroundImage = "url('pic3.jpg')";
                         timerCheck = timerCheck+1;
                         nextScene();
+
                     }
                 
                 }
@@ -232,8 +238,7 @@
                 console.log("this is counter: " + counter);
                 
                 if(counter%2 !=0){
-                     
-                     
+                    
                      
                      document.getElementById("4").style.visibility="hidden";
                     // Clear the transitional response
@@ -250,14 +255,15 @@
                     var imageString = scenarios[index]["background"];
 
                     document.body.style.backgroundImage = "url(" + imageString + ")";
-                    
-                    document.getElementById("question").innerHTML=scenarios[index]["question"];
+
+                    document.getElementById("question"+questioncount).innerHTML=scenarios[index]["question"];
 
                     audio.src = scenarios[index]["audio"];
                     audio.play();
-                     
+                    
                     index = index + 1;
                     counter = counter + 1;
+                    questioncount = questioncount + 1;
                 }
                 
                 // If the user answered a question, we want to show a transitional educational fact
@@ -268,15 +274,16 @@
                     console.log("adding transitional response, this is index" + index);
                     console.log("adding transitional response, this is counter" + counter);
                     
-                    
-                    document.getElementById("question").innerHTML="";
-                    
+                                    
                     clearButtons()
                     
 //                    audio.src = scenarios[index]["audio"];
 //                    audio.play();
-                    
                     document.getElementById("answer3").innerHTML=scenarios[index-1]["transitionResponse"]
+                    document.getElementById("question0").innerHTML="";
+                    document.getElementById("question1").innerHTML="";
+                    document.getElementById("question2").innerHTML="";
+                    document.getElementById("question3").innerHTML="";
                     
                     console.log("hi")
                     counter = counter + 1;
