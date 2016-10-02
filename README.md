@@ -13,11 +13,11 @@ hello people
 // hi
 
 
-[ ] Add scenario list (including images, for now like the 4 that we have done)
-[ ] make sure that ^ works, debug accordingly
-[ ] make buttons transparent
-[ ] for the first four images, arrange the placement of each of the buttons in the style section
-[ ] add the rest of the images
-[ ] arrange placement of rest of buttons in the style section 
-[ ] add effects 
-[ ] add audio
+- [ ] Add scenario list (including images, for now like the 4 that we have done)
+- [ ] make sure that ^ works, debug accordingly
+- [ ] make buttons transparent
+- [ ] for the first four images, arrange the placement of each of the buttons in the style section
+- [ ] add the rest of the images
+- [ ] arrange placement of rest of buttons in the style section 
+- [ ] add effects 
+- [ ] add audio
