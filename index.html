@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
     
@@ -23,35 +21,47 @@
             }
 
             #question1 {
-                width: 24%;
+                width: 20%;
                 position: absolute;
                 left: 180px;
-                top: 400px;
+                top: 375px;
                 color: ivory;
                 font-size: 20px;
             }
             
-
+            #question2 {
+                width: 10%;
+                position: absolute;
+                left: 950px;
+                top: 335px;
+                color: darkslategray;
+                font-size: 20px;
+            }
+            
+            #question3 {
+                width: 20%;
+                position: absolute;
+                left: 300px;
+                top: 50px;
+                color: ivory;
+                font-size: 20px;
+            }
+            
             #educationalFact1{
                 font-family: arial;
                 color:ivory;
                 width: 25%;
             }
-
             #educationalFact2{
                 font-family: arial;
                 color:ivory;
                 width: 25%;
             }
-
              #educationalFact3{
                 font-family: arial;
                 color:ivory;
                 width: 25%;
             }
-
-
-
             #button {
                 
                 /*add in transparent button things      */   
@@ -99,17 +109,17 @@
         
         
         
-        <canvas id="myCanvas" width="1000" height="500" ></canvas>
+       <canvas id="myCanvas" width="1500" height="500" ></canvas>
         <script>
             var canvas = document.getElementById("myCanvas");
             var ctx = canvas.getContext("2d");
             
-            var therm_x = 840;
+            var therm_x = 1025;
             var therm_y = 35;
             var therm_width = 20;
             var therm_height = 100;
             
-            var black_x = 835;
+            var black_x = 1020;
             var black_y = 30;
             var black_width = 30;
             var black_height = 110;
@@ -125,9 +135,9 @@
             
             function drawScore() {
                 ctx.font = "20px Verdana";
-                ctx.fillStyle = "white";
-                ctx.fillText("Microagressions", 740, 180);
-                ctx.fillText("Faced:" + score, 800, 210);
+                ctx.fillStyle = "ivory";
+                ctx.fillText("Microaggressions", 955, 180);
+                ctx.fillText("Faced:" + score, 1000, 210);
             }
             
             function drawThermometer() {
@@ -138,8 +148,8 @@
                 ctx.closePath();
                 
                 ctx.font = "20px Verdana";
-                ctx.fillStyle = "white";
-                ctx.fillText("Energy:", 800, 20);
+                ctx.fillStyle = "ivory";
+                ctx.fillText("Energy Spent:", 955, 20);
             }
             
             function drawThermBackground() {
@@ -150,8 +160,8 @@
                 ctx.closePath();
         
                 ctx.beginPath();
-                ctx.rect(840, 35, 20, 100);
-                ctx.fillStyle = "white";
+                ctx.rect(1025, 35, 20, 100);
+                ctx.fillStyle = "ivory";
                 ctx.fill();
                 ctx.closePath();
             }
@@ -184,13 +194,9 @@
                 answer3 : "You ignore him and leave", 
                 transitionResponse : "This is an example of gender stereotyping. Gender stereotyes are pervasive in today's society. Common stereotypes about women include the assumption that they are weak and incompetent.", 
                 audio : "happyChances.mp3" }, 
-
             {background : "pic4bubble.jpg", question : "You're walking to work now, and a guy on the street says to you 'Damn, you look fine girl. Smile for me!'", answer1 : "You smile", answer2 : "You say, 'This is considered harassment, and you need to leave me alone.'", answer3 : "You ignore him", transitionResponse : "Over 99% of American women have been a victim of street harrasment such as honking, whistling, kissing noises, staring, etc.", audio : "trafficJam.mp3" }, 
-
             {background : "pic5bubble.jpg", question : "You've arrived at work, and you're currently in a meeting. You keep getting interrupted by your male coworker while you're speaking", answer1 : "You allow the coworker to keep interupting", answer2 : "You say, 'Excuse me, can you let me finish my sentence?'", answer3 : "You decide to just let the coworker speak for you", transitionResponse : "Women’s perceived competency drops by 35 percent and their perceived deserved compensation by $15,088 when they are assertive or forceful.", audio : "officeSounds.mp3" },
-
             {background: "pic6.jpg", question : "It's finally the end of the day, and you're at the bar with friends. While you're partying, a guy grabs a random woman's waist from the back. She tells him to stop, but he doesn't listen.", answer1 : "You cheer her on", answer2 : "You tell him to back off because 'Yes means yes, and no means no'.", answer3 : "You pretend you never saw", transitionResponse : "Nearly 57 percent of women reported being touched or grabbed in a sexual way by a stranger in public", audio: "busyBar.mp3" }];
-
      
             
         
@@ -201,7 +207,6 @@
             audio.play();
             
             var vol = 0;
-
             while (vol > 0)
             {
                 vol -= 5
@@ -251,7 +256,6 @@
                         document.body.style.backgroundImage = "url('pic3bubble.jpg')";
                         timerCheck = timerCheck+1;
                         nextScene();
-
                     }
                 
                 }
@@ -264,7 +268,6 @@
                 
             } if(timerCheck===1){
                 	setInterval("changeImage()", 8000); //8000
-
                 } 
             
             
@@ -390,23 +393,15 @@
                     // Update the value of the buttons to reflect the current question's answers
                     updateButtons();
                     
-
                     //console.log("this is scenarios length: " + scenarios.length)
-
-
                     // The current JS object background
                     var imageString = scenarios[index]["background"];
-
                     document.body.style.backgroundImage = "url(" + imageString + ")";
-
                     document.getElementById("question"+questioncount).innerHTML=scenarios[index]["question"];
-
                     document.getElementById("educationalFact0").innerHTML="";
                     document.getElementById("educationalFact1").innerHTML="";
                     document.getElementById("educationalFact2").innerHTML="";
                     document.getElementById("educationalFact3").innerHTML="";
-
-
                     audio.src = scenarios[index]["audio"];
                     audio.play();
                     
@@ -428,7 +423,6 @@
                     
 //                    audio.src = scenarios[index]["audio"];
 //                    audio.play();
-
                     document.getElementById("educationalFact"+questioncount).innerHTML=scenarios[index-1]["transitionResponse"]
                     document.getElementById("question0").innerHTML="";
                     document.getElementById("question1").innerHTML="";
@@ -448,8 +442,3 @@
         
         
     </body>
-</html>
-
-
-
-
