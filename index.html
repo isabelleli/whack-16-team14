@@ -9,7 +9,8 @@
             #image {
 /*                background-color: blue;*/
                 background-image:url("pic1.jpg");
-                background-size: 100% auto;
+                background-size: 79% auto;
+
                 }
             
             #question {
@@ -37,7 +38,7 @@
     <body id="image">
 
         
-        <h1>Welcome to My Homepage</h1>
+        <h1>Smile For Me</h1>
         
         <div id="question"></div>
         <div id="answer1"></div>
@@ -46,60 +47,146 @@
         
         <div id = "educationalFact"></div>
         
-        <div id="button">
-        
-            <button type="button" onclick="nextScene(this.id)" id="1"></button>
-            <button type="button" onclick="nextScene(this.id)" id="2"></button>
-            <button type="button" onclick="nextScene(this.id)" id="3"></button>
-            <button type="button" onclick="nextScene(this.id)" id="submit"><img src="arrow.png" alt="Continue" height="12" width="12"></button>
+    
             
             
+            <div id = "button">
+
+            <button style = "background-color: transparent; border-width: 2px; border-radius: 10px" onclick="nextScene(this.id)" id="1"></button>
+            <button style = "background-color: transparent; border-width: 2px; border-radius: 10px" onclick="nextScene(this.id)" id="2"></button>
+            <button style = "background-color: transparent; border-width: 2px; border-radius: 10px" onclick="nextScene(this.id)" id="3"></button>
+                
+                
+                
         </div>
         
+        <canvas id="myCanvas" width="1000" height="500" ></canvas>
+        <script>
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+            
+            var therm_x = 550;
+            var therm_y = 5;
+            var therm_width = 30;
+            var therm_height = 100;
+            
+            var black_x = 545;
+            var black_y = 0;
+            var black_width = 40;
+            var black_height = 110;
+            
+            var increment = 25;
+            var score = "";
+            
+            document.addEventListener ("click", mouseMoveHandler, false);
+            function mouseMoveHandler(e) {
+                    therm_y += increment;
+                    therm_height -= increment;
+                    score += "|";
+            }
+
+            function drawScore() {
+                ctx.font = "16px Chalkboard";
+                ctx.fillStyle = "#0095DD";
+                ctx.fillText("Tally: " + score, 10, 250);
+            }
+            
+            function drawThermometer() {
+                ctx.beginPath();
+                ctx.rect(therm_x, therm_y, therm_width, therm_height);
+                ctx.fillStyle = "grey";
+                ctx.fill();
+                ctx.closePath();
+            }
+            
+            function drawThermBackground() {
+                ctx.beginPath();
+                ctx.rect(black_x, black_y, black_width, black_height);
+                ctx.fillStyle = "black";
+                ctx.fill();
+                ctx.closePath();
         
+                ctx.beginPath();
+                ctx.rect(550, 5, 30, 100);
+                ctx.fillStyle = "white";
+                ctx.fill();
+                ctx.closePath();
+            }
+            
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                drawThermBackground();
+                drawThermometer();
+                drawScore();
+                requestAnimationFrame(draw);
+            }
+            
+            draw();
+        </script>
         
         <script>
             
+            console.log("generic");
             var index = 0;
             var counter = 1;
             
-            var scenarios = [{background : "pic2.jpg", question : "As you leave, the doorman comments 'Are you sure you can carry that? It looks too heavy for a girl like you", answer1 : "You smile and nod and let him carry it", answer2 : "You say, 'No, I can handle this myself'", answer3 : "You ignore him and leave", transitionResponse : "This is an example of gender stereotyping. Gender stereotyes are pervasive in today's society. Common stereotypes about women include the assumption that they are weak and incompetent." }, {background : "pic3.jpg", question : "You're walking to work now, and a guy on the street says to you ", answer1 : "You smile", answer2 : "You say, 'This is considered harassment, and you need to leave me alone.'", answer3 : "You ignore him", transitionResponse : "Over 99% of American women have been a victim of street harrasment such as honking, whistling, kissing noises, staring, etc." }, {background : "pic4.jpg", question : "You've arrived at work, and you're currently in a meeting. You keep getting interrupted by your male coworker while you're speaking", answer1 : "You allow the coworker to keep interupting", answer2 : "You say, 'Excuse me, can you let me finish my sentence?'", answer3 : "You decide to just let the coworker speak for you", transitionResponse : "Women’s perceived competency drops by 35 percent and their perceived deserved compensation by $15,088 when they are assertive or forceful." },{background: "pic5.jpg", question : "It's finally the end of the day, and you're at the bar with friends. While you're partying, a guy grabs your friend's waist from the back. Your friend tells him to stop, but he doesn't listen.", answer1 : "You cheer on your friend", answer2 : "You tell him to back off because 'Yes means yes, and no means no'.", answer3 : "You pretend you never saw", transitionResponse : "Nearly 57 percent of women reported being touched or grabbed in a sexual way by a stranger in public"}];
+            var scenarios = [{background : "pic3bubble.jpg", question : "As you leave, the doorman comments 'Are you sure you can carry that? It looks too heavy for a girl like you", answer1 : "You smile and nod and let him carry it", answer2 : "You say, 'No, I can handle this myself'", answer3 : "You ignore him and leave", transitionResponse : "This is an example of gender stereotyping. Gender stereotyes are pervasive in today's society. Common stereotypes about women include the assumption that they are weak and incompetent." }, 
+
+            {background : "pic4.jpg", question : "You're walking to work now, and a guy on the street says to you ", answer1 : "You smile", answer2 : "You say, 'This is considered harassment, and you need to leave me alone.'", answer3 : "You ignore him", transitionResponse : "Over 99% of American women have been a victim of street harrasment such as honking, whistling, kissing noises, staring, etc." }, 
+
+            {background : "pic3.jpg", question : "You've arrived at work, and you're currently in a meeting. You keep getting interrupted by your male coworker while you're speaking", answer1 : "You allow the coworker to keep interupting", answer2 : "You say, 'Excuse me, can you let me finish my sentence?'", answer3 : "You decide to just let the coworker speak for you", transitionResponse : "Women’s perceived competency drops by 35 percent and their perceived deserved compensation by $15,088 when they are assertive or forceful." },
+
+            {background: "pic4.jpg", question : "It's finally the end of the day, and you're at the bar with friends. While you're partying, a guy grabs your friend's waist from the back. Your friend tells him to stop, but he doesn't listen.", answer1 : "You cheer on your friend", answer2 : "You tell him to back off because 'Yes means yes, and no means no'.", answer3 : "You pretend you never saw", transitionResponse : "Nearly 57 percent of women reported being touched or grabbed in a sexual way by a stranger in public"}];
 
      
         function  updateButtons(){
-            document.getElementById(1).textContent = scenarios[index]["answer1"];
-            document.getElementById(2).textContent = scenarios[index]["answer2"];
-            document.getElementById(3).textContent = scenarios[index]["answer3"];
-            }
+            
+            console.log("updateButtons");
+            
+                console.log("in update buttons, here is the index:" + index)
+                document.getElementById(1).textContent = scenarios[index]["answer1"];
+                document.getElementById(2).textContent = scenarios[index]["answer2"];
+                document.getElementById(3).textContent = scenarios[index]["answer3"];
+            
+            
+        }
             
             
             function  clearButtons(){
+                
                 document.getElementById(1).textContent = "";
                 document.getElementById(2).textContent = "";
                 document.getElementById(3).textContent = "";
             }
                 
+            /*function changeImage(){
+                
+                
+                if(index === 0) document.body.style.backgroundImage = "url('pic2.jpg')";
+                else if(index === 1) document.body.style.backgroundImage = "url('pic3.jpg')";
+                
+            }
+                            
+                
+            if(index==0 || index==1){
+                	setInterval("changeImage()", 1000);
+
+                } */
             
-            
-            function  nextScene(button_id) {
+            function  nextScene() {
                 
                 if(index === scenarios.length) return;
                 
-                //console.log(index)  
                 
                 
-                
-                if(counter%2 !=0){
-                    
+                 if(counter%2 !=0){
+                     
                     // Clear the transitional response
                     document.getElementById("answer3").innerHTML="";
                     
                     // Update the value of the buttons to reflect the current question's answers
                     updateButtons();
                     
-                    // Test to make sure that we are looking at the proper id
-                    var el = document.getElementById(button_id);
-                    console.log("this is button id:" + button_id)
 
                     //console.log("this is scenarios length: " + scenarios.length)
 
@@ -108,10 +195,6 @@
                     var imageString = scenarios[index]["background"];
 
                     document.body.style.backgroundImage = "url(" + imageString + ")";
-                    
-                    document.body.style.maxHeight=document.documentElement.clientWidth;
-                    document.body.style.maxWidth=window.innerWidth;
-
                     
                     document.getElementById("question").innerHTML=scenarios[index]["question"];
 
@@ -122,8 +205,11 @@
                 
                 // If the user answered a question, we want to show a transitional educational fact
                 
+                
                 else{
-                    console.log("adding transitional response")
+                    console.log("adding transitional response, this is index" + index);
+                    console.log("adding transitional response, this is counter" + counter);
+                    
                     
                     document.getElementById("question").innerHTML="";
                     
@@ -132,11 +218,15 @@
                     document.getElementById("answer3").innerHTML=scenarios[index]["transitionResponse"]
                     
                     counter = counter + 1;
-                }
+                    
+                
                 //console.log("index after incrementing: " + index)
                 
+                }
             }
         </script>
+        
+        
         
     </body>
 </html>
