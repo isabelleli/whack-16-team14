@@ -14,13 +14,23 @@
                 }
             
             #question0 {
-                width: 30%;
+                width: 24%;
                 position: absolute;
-                left: 360px;
-                top: 550px;
-                color: white;
+                left: 900px;
+                top: 560px;
+                color: darkslategray;
                 font-size: 20px;
             }
+
+            #question1 {
+                width: 24%;
+                position: absolute;
+                left: 900px;
+                top: 560px;
+                color: darkslategray;
+                font-size: 20px;
+            }
+            
             
             #answer1{
                 
@@ -145,9 +155,16 @@
             var counter = 1;
             var questioncount = 0;
             
-            var scenarios = [{background : "pic3bubble.jpg", question : "As you leave, the doorman comments 'Are you sure you can carry that? It looks too heavy for a girl like you", answer1 : "You smile and nod and let him carry it", answer2 : "You say, 'No, I can handle this myself'", answer3 : "You ignore him and leave", transitionResponse : "This is an example of gender stereotyping. Gender stereotyes are pervasive in today's society. Common stereotypes about women include the assumption that they are weak and incompetent.", audio : "happyChances.mp3" }, 
+            var scenarios = [{
+                background : "pic3bubble.jpg", 
+                question : "As you leave, the doorman comments on the bags you're carrying. 'Are you sure you can carry that? It looks too heavy for a girl like you.'", 
+                answer1 : "You smile and nod and let him carry it", 
+                answer2 : "You say, 'No, I can handle this myself'", 
+                answer3 : "You ignore him and leave", 
+                transitionResponse : "This is an example of gender stereotyping. Gender stereotyes are pervasive in today's society. Common stereotypes about women include the assumption that they are weak and incompetent.", 
+                audio : "happyChances.mp3" }, 
 
-            {background : "pic4bubble.jpg", question : "You're walking to work now, and a guy on the street says to you ", answer1 : "You smile", answer2 : "You say, 'This is considered harassment, and you need to leave me alone.'", answer3 : "You ignore him", transitionResponse : "Over 99% of American women have been a victim of street harrasment such as honking, whistling, kissing noises, staring, etc.", audio : "trafficJam.mp3" }, 
+            {background : "pic4bubble.jpg", question : "You're walking to work now, and a guy on the street says to you 'Damn, you look fine girl. Smile for me!'", answer1 : "You smile", answer2 : "You say, 'This is considered harassment, and you need to leave me alone.'", answer3 : "You ignore him", transitionResponse : "Over 99% of American women have been a victim of street harrasment such as honking, whistling, kissing noises, staring, etc.", audio : "trafficJam.mp3" }, 
 
             {background : "pic5bubble.jpg", question : "You've arrived at work, and you're currently in a meeting. You keep getting interrupted by your male coworker while you're speaking", answer1 : "You allow the coworker to keep interupting", answer2 : "You say, 'Excuse me, can you let me finish my sentence?'", answer3 : "You decide to just let the coworker speak for you", transitionResponse : "Women’s perceived competency drops by 35 percent and their perceived deserved compensation by $15,088 when they are assertive or forceful.", audio : "officeSounds.mp3" },
 
@@ -222,10 +239,10 @@
                 //*
             if(timerCheck===0){
                 
-                setInterval("changeImage()", 3000);
+                setInterval("changeImage()", 3000); //3000
                 
             } if(timerCheck===1){
-                	setInterval("changeImage()", 8000);
+                	setInterval("changeImage()", 8000); //8000
 
                 } 
             
