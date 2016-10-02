@@ -9,7 +9,7 @@
             #image {
 /*                background-color: blue;*/
                 background-image:url("pic1.jpg");
-                background-size: 79% auto;
+                background-size: 80% auto;
 
                 }
             
@@ -52,9 +52,11 @@
             
             <div id = "button">
 
-            <button style = "background-color: transparent; border-width: 2px; border-radius: 10px" onclick="nextScene(this.id)" id="1"></button>
-            <button style = "background-color: transparent; border-width: 2px; border-radius: 10px" onclick="nextScene(this.id)" id="2"></button>
-            <button style = "background-color: transparent; border-width: 2px; border-radius: 10px" onclick="nextScene(this.id)" id="3"></button>
+            <button style = "background-color: transparent; border-width: 2px; border-radius: 10px; border:none" onclick="nextScene()" id="1"></button>
+            <button style = "background-color: transparent; border-width: 2px; border-radius: 10px; border:none" onclick="nextScene()" id="2"></button>
+            <button style = "background-color: transparent; border-width: 2px; border-radius: 10px;border:none" onclick="nextScene()" id="3"></button>
+                
+            <button style = "background-color: transparent; border-width: 2px; border-radius: 10px;border:none size:10px 10px; visibility:hidden" onclick="nextScene()"  id="4"><img src="arrow.png" alt="Continue"></button>
                 
                 
                 
@@ -128,6 +130,7 @@
             
             console.log("generic");
             var index = 0;
+            var timerCheck = 0;
             var counter = 1;
             
             var scenarios = [{background : "pic3bubble.jpg", question : "As you leave, the doorman comments 'Are you sure you can carry that? It looks too heavy for a girl like you", answer1 : "You smile and nod and let him carry it", answer2 : "You say, 'No, I can handle this myself'", answer3 : "You ignore him and leave", transitionResponse : "This is an example of gender stereotyping. Gender stereotyes are pervasive in today's society. Common stereotypes about women include the assumption that they are weak and incompetent." }, 
@@ -159,28 +162,41 @@
                 document.getElementById(3).textContent = "";
             }
                 
-            /*function changeImage(){
+            if(timerCheck===0 || timerCheck===1){
+                function changeImage(){
+                    console.log("in images");
                 
+                    if(timerCheck === 0){
+                    
+                        document.body.style.backgroundImage = "url('pic2.jpg')";
+                        timerCheck = timerCheck+1;
+                    
+                    } 
+                    else if(timerCheck === 1){
+                        document.body.style.backgroundImage = "url('pic3.jpg')";
+                        timerCheck = timerCheck+1;
+                        nextScene();
+                    }
                 
-                if(index === 0) document.body.style.backgroundImage = "url('pic2.jpg')";
-                else if(index === 1) document.body.style.backgroundImage = "url('pic3.jpg')";
-                
+                }
             }
                             
-                
-            if(index==0 || index==1){
-                	setInterval("changeImage()", 1000);
+                //*
+            if(timerCheck===0 || timerCheck===1){
+                	setInterval("changeImage()", 3000);
 
-                } */
+                } 
             
             function  nextScene() {
+                console.log("in next scene, this is counter: " + counter);
                 
                 if(index === scenarios.length) return;
                 
+//                
                 
-                
-                 if(counter%2 !=0){
+                 else if(counter%2 !=0){
                      
+                     document.getElementById("4").style.visibility="hidden";
                     // Clear the transitional response
                     document.getElementById("answer3").innerHTML="";
                     
@@ -207,6 +223,7 @@
                 
                 
                 else{
+                    document.getElementById("4").style.visibility="visible";
                     console.log("adding transitional response, this is index" + index);
                     console.log("adding transitional response, this is counter" + counter);
                     
@@ -217,6 +234,7 @@
                     
                     document.getElementById("answer3").innerHTML=scenarios[index]["transitionResponse"]
                     
+                    console.log("hi")
                     counter = counter + 1;
                     
                 
