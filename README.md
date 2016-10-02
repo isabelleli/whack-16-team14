@@ -10,6 +10,7 @@ This site also contains information about sexual assault and/or violence which m
     - [x] aaaa
     - [x] javascript is difficult
 - [x] image compatibility
+- [ ] thermometer
 - [ ] formatting
 - [ ] Add scenario list (including images, for now like the 4 that we have done)
 - [ ] add timer for going to next scenario after the transitional response
