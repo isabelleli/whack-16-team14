@@ -25,9 +25,9 @@
             #question1 {
                 width: 24%;
                 position: absolute;
-                left: 900px;
-                top: 560px;
-                color: darkslategray;
+                left: 180px;
+                top: 400px;
+                color: ivory;
                 font-size: 20px;
             }
             
@@ -61,7 +61,11 @@
         <div id="answer2"></div>
         <div id="answer3"></div>
         
-        <div id = "educationalFact"></div>
+        <div id = "educationalFact0"></div>
+        <div id = "educationalFact1"></div>
+        <div id = "educationalFact2"></div>
+        <div id = "educationalFact3"></div>
+
         
     
             <div id = "button">
@@ -118,7 +122,7 @@
                 
                 ctx.font = "20px Verdana";
                 ctx.fillStyle = "white";
-                ctx.fillText("Energy Spent:", 755, 20);
+                ctx.fillText("Energy:", 800, 20);
             }
             
             function drawThermBackground() {
@@ -277,6 +281,12 @@
 
                     document.getElementById("question"+questioncount).innerHTML=scenarios[index]["question"];
 
+                    document.getElementById("educationalFact0").innerHTML="";
+                    document.getElementById("educationalFact1").innerHTML="";
+                    document.getElementById("educationalFact2").innerHTML="";
+                    document.getElementById("educationalFact3").innerHTML="";
+
+
                     audio.src = scenarios[index]["audio"];
                     audio.play();
                     
@@ -298,7 +308,8 @@
                     
 //                    audio.src = scenarios[index]["audio"];
 //                    audio.play();
-                    document.getElementById("answer3").innerHTML=scenarios[index-1]["transitionResponse"]
+
+                    document.getElementById("educationalFact"+questioncount).innerHTML=scenarios[index-1]["transitionResponse"]
                     document.getElementById("question0").innerHTML="";
                     document.getElementById("question1").innerHTML="";
                     document.getElementById("question2").innerHTML="";
