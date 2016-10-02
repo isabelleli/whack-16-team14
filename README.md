@@ -17,9 +17,11 @@ hello people
 - [ ] add timer for going to next scenario after the transitional response
 - [ ] make sure that ^ works, debug accordingly
 - [ ] make buttons transparent
-- [ ] for the first four images, arrange the placement of each of the buttons in the style section
+- [ ] for the first four images, arrange the placement of each of the buttons in the style section 
 - [ ] add the rest of the images
 - [ ] arrange placement of rest of buttons in the style section 
 - [ ] add effects 
 - [ ] add audio
 - [ ] add full screen mode
+- [ ] link custom domain 
+- [ ] text animations
