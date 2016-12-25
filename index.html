@@ -6,7 +6,7 @@
         <style>
             #image {
 /*                background-color: blue;*/
-                background-image:url("pic1.jpg");
+                background-image:url("pic1.jpg"); /* gets first pic */
                 background-size: 100% auto;
                 background-repeat: no-repeat;
                 transition: 1.5s;
@@ -97,7 +97,7 @@
         
     
             <div id = "button">
-            <button style = "background-color: transparent; border-width: 2px; border-radius: 10px; border:none" onclick="nextScene();decrement()" id="1"></button>
+            <button style = "background-color: transparent; border-width: 2px; border-radius: 10px; border:none" onclick="nextScene();decrement()" id="1"></button> <!-- go to next.js file for nextScene func-->
             <button style = "background-color: transparent; border-width: 2px; border-radius: 10px; border:none" onclick="nextScene();decrement()" id="2"></button>
             <button style = "background-color: transparent; border-width: 2px; border-radius: 10px;border:none" onclick="nextScene();decrement()" id="3"></button>
                 
@@ -111,7 +111,7 @@
         
         
        <canvas id="myCanvas" width="1500" height="500" ></canvas>
-        <script>
+        <script> /* thermometer part of simulation */
             var canvas = document.getElementById("myCanvas");
             var ctx = canvas.getContext("2d");
             
